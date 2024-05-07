@@ -29,7 +29,8 @@ android {
     aaptOptions {
         noCompress = **BUILTIN_NOCOMPRESS** + unityStreamingAssets.tokenize(', ')
         ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~"
-    }**SIGN**
+    }
+    **SIGN**
 
     lintOptions {
         abortOnError false
@@ -45,8 +46,14 @@ android {
             minifyEnabled **MINIFY_RELEASE**
             proguardFiles getDefaultProguardFile('proguard-android.txt')**SIGNCONFIG**
         }
-    }**PACKAGING_OPTIONS****PLAY_ASSET_PACKS****SPLITS**
-**BUILT_APK_LOCATION**
+    }
+    **PACKAGING_OPTIONS**
+    packagingOptions {
+       exclude('META-INF/kotlinx_coroutines_core.version')
+    }
+    **PLAY_ASSET_PACKS**
+    **SPLITS**
+    **BUILT_APK_LOCATION**
     bundle {
         language {
             enableSplit = false
@@ -58,4 +65,6 @@ android {
             enableSplit = true
         }
     }
-}**SPLITS_VERSION_CODE****LAUNCHER_SOURCE_BUILD_SETUP**
+}
+**SPLITS_VERSION_CODE**
+**LAUNCHER_SOURCE_BUILD_SETUP**
