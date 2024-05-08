@@ -200,7 +200,7 @@ namespace Firebase.Sample.Messaging {
           Firebase.Messaging.FirebaseMessaging.GetTokenAsync().ContinueWithOnMainThread(
             task => {
               token = task.Result;
-              LogTaskCompletion(task, "GetTokenAsync");
+              LogTaskCompletion(task, $"GetTokenAsync token={token}");
             }
           );
           DebugLog("GetTokenAsync " + token);
